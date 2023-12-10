@@ -2,7 +2,7 @@
 
 # Sujet: construction d'un modèle de machine Learning pour la détection de phishing
 
-<font color="red">objectif: rouge</font>
+<h2 color="red">objectif:</h2>
 - Faire une analyse des données;
 - Nettoyer les données collectées;
 - Créer des features appropriés;
