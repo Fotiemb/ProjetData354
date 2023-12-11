@@ -64,7 +64,7 @@ Le phishing constitue une attaque sophistiquée de cybercriminalité visant à i
 
 - Notebook [ici](https://github.com/Fotiemb/ProjetData354/blob/main/DetectionDePhising.ipynb)
 - plateforme développé pour tester le modèle: http://fotiemb.pythonanywhere.com/
-- API: [ici](https://github.com/Fotiemb/ProjetData354/blob/main/DetectionDePhising.ipynb)
+- API: [ici](https://github.com/Fotiemb/ProjetData354/tree/main/API_ForDeployment)
 
 ## III) Structuration du projet
 
