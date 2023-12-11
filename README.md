@@ -1,9 +1,10 @@
 ## ProjetData354
 
-**Contexte du Projet : Construction d'un Modèle de Machine Learning pour la Détection de Phishing**
+### **Contexte du Projet : Construction d'un Modèle de Machine Learning pour la Détection de Phishing**
 
 
 **Objectifs du Projet:**
+
 - Analyse des Données : Comprendre la nature des données disponibles, identifier les caractéristiques pertinentes et établir des tendances et des relations potentielles.
   
 - Nettoyage des Données : Prétraiter les données pour éliminer les valeurs manquantes, les duplications et tout bruit indésirable, garantissant ainsi la qualité des données pour l'entraînement du modèle.
@@ -17,10 +18,15 @@
 Optionnel : Déploiement d'une API :
 Pour une utilisation pratique, le projet pourrait inclure le développement d'une API (Interface de Programmation d'Applications) permettant le déploiement du modèle de détection de phishing. Cela offrirait la possibilité d'intégrer le modèle dans divers systèmes et applications pour une protection en temps réel contre les attaques de phishing
 
+### I)   Qu'est ce que le phising
+### II)  Fichiers essentiels
+### III) Structuration du projet
+### IV)  Perspectives
+
 
 ### D'abord posons les jalons et donnons quelques définition afin que ce projet soit compris dans son ensemble.
 
-## Qu'est ce le Phising
+## I) Qu'est ce le Phising
 
 **Définition du phishing** 
 Le phishing constitue une attaque sophistiquée de cybercriminalité visant à induire en erreur les individus et à les inciter à divulguer des informations sensibles, telles que des identifiants, mots de passe et données financières.
@@ -54,34 +60,38 @@ Le phishing constitue une attaque sophistiquée de cybercriminalité visant à i
 - Utilisation de filtres anti-phishing : outils pour détecter et bloquer les e-mails de phishing.
 - Mises à jour régulières des logiciels de sécurité.
 
+## II)  Fichiers essentiels
 
-## Reponses aux Objectifs
+- Notebook [ici](https://github.com/Fotiemb/ProjetData354/blob/main/DetectionDePhising.ipynb)
+- plateforme développé pour tester le modèle: http://fotiemb.pythonanywhere.com/
+- API: [ici](https://github.com/Fotiemb/ProjetData354/blob/main/DetectionDePhising.ipynb)
+
+## III) Structuration du projet
+
+### Reponses aux Objectifs
 
 `Note:` Se référer au notebook [ici](https://github.com/Fotiemb/ProjetData354/blob/main/DetectionDePhising.ipynb) Pour mieux comprendre notre approche.
-**Analyse du jeu de données**
-
-Nous avons 23523 entrées uniques. Il y a deux colonnes, celle de URL et de la colonne d'étiquette est une colonne de prédiction avec 2 catégories:
-
-`legit`: Ce qui signifie que les URL ne contiennent pas d'éléments malveillants et que ce site n'est pas un phishing.
-`fishing`: Ce qui signifie que les URL contiennent des éléments malveillants et que ce site est un site de phishing.
+  **Analyse du jeu de données**
+  Nous avons 23523 entrées uniques. Il y a deux colonnes, celle de URL et de la colonne d'étiquette est une colonne de prédiction avec 2 catégories:
+  `legit`: Ce qui signifie que les URL ne contiennent pas d'éléments malveillants et que ce site n'est pas un phishing.
+  `fishing`: Ce qui signifie que les URL contiennent des éléments malveillants et que ce site est un site de phishing.
 
 Il n'y a aucune valeur manquante dans l'ensemble de données.
 
-**Nettoyage des Données**
-Nous créé un fonction `preprocess_initial` qui permet de faire le Prétraitement sur l'ensemble de nos URLs.
+  **Nettoyage des Données:**
+  Nous créé un fonction `preprocess_initial` qui permet de faire le Prétraitement sur l'ensemble de nos URLs.
 
-**Création de Features Appropriés**
+  **Création de Features Appropriés:**
+  Nous avons passé nos données d'URL à un matrice TF-IDF pour la création de feature.
 
-Nous avons passé nos données d'URL à un matrice TF-IDF pour la création de feature.
+**Comparaison de Modèles:**
+Nous avons fait la comparaison entre trois modèles en  utilisant différents technique de machine learning.
 
-**Comparaison de Modèles**
-Nous avons fait la comparaison entre trois modèles et utilisant différents technique de machine learning.
-
-**Prédiction du Label pour le Fichier de Soumission**
+**Prédiction du Label pour le Fichier de Soumission:**
 Nous avons fait les prédictions sur les données de soumissions pour voir si notre moèle arrive à bien généraliser sur de nouvelles données.
 
-**Déploiement d'une API**
-Nous avons intégré le modèle à une application (basique) en production en griffe.
+**Déploiement d'une APP**
+Nous avons intégré le modèle à une application (basique) en production entre griffe.
 Nous vous fournissons des données test que vous pourriez utiliser pour voir le comportement de l'application.
 
 données:
@@ -95,5 +105,8 @@ http://yeniik.com.tr/wp-admin/js/login.alibaba.com/login.jsp.php
 ```
 
 lien vers l'application: http://fotiemb.pythonanywhere.com/
+
+## IV)  Perspectives
+
 
 
