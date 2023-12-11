@@ -1,5 +1,6 @@
-from joblib import load
-from typing import Optional
+# from joblib import load
+import pickle
+# from typing import Optional
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -7,7 +8,7 @@ from pydantic import BaseModel
 app = FastAPI()
 
 # Charger le modèle formé pour la classification des URL
-loaded_model = load('logreg.joblib')
+loaded_model = pickle.load(open('phishingLR.pkl', 'rb'))
 
 # Modèle de données pour la requête
 class UrlRequest(BaseModel):
