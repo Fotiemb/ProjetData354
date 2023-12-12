@@ -85,9 +85,9 @@ Il n'y a aucune valeur manquante dans l'ensemble de données.
  
   **prétraitement:**
   
-  Nous avons opté pour une approche dans le contexte du texte mining.
+Nous avons opté pour une approche dans le contexte du texte mining.
 
-Nous avons créé une fonction appelée preprocess_initial qui permet d'effectuer le prétraitement sur l'ensemble de nos URLs. Cette fonction réalise la tokenization et la racinisation initiales sur une URL. Elle utilise un tokenizer pour diviser l'URL en mots, un stemmer pour réduire les mots à leur racine, puis supprime les stopwords spécifiques aux URLs. Enfin, elle concatène les mots résultants pour former une version traitée de l'URL.
+Nous avons créé une fonction appelée `preprocess_initial` qui permet d'effectuer le prétraitement sur l'ensemble de nos URLs. Cette fonction réalise la tokenization et la racinisation initiales sur une URL. Elle utilise un tokenizer pour diviser l'URL en mots, un stemmer pour réduire les mots à leur racine, puis supprime les stopwords spécifiques aux URLs. Enfin, elle concatène les mots résultants pour former une version traitée de l'URL.
 
   **Création de Features Appropriées:**
 
@@ -95,7 +95,10 @@ Nous avons transformé nos données d'URL en une matrice TF-IDF pour la créatio
 
 **Comparaison de Modèles:**
 
-Nous avons comparé trois modèles en utilisant différentes techniques de machine learning. Pour plus de détails, veuillez vous référer au notebook.
+Nous avons comparé trois modèles en utilisant différentes techniques de machine learning. Pour plus de détails, veuillez vous référer au notebook. Nous mis en avant ces métriques:
+- F1-score
+- La precision
+- Le rappel
 
 **Prédiction du Label pour le Fichier de Soumission:**
 
@@ -103,7 +106,7 @@ Nous avons fait les prédictions sur les données de soumissions pour voir si no
 
 **Mise en place d'une API**
 
-Nous avons mis en place une API grâce à FastAPI suivez les étapes suivantes pour la déployer en local
+Nous avons mis en place une API grâce à FastAPI. Suivez les étapes suivantes pour la déployer en local.
 
 ```
 https://github.com/Fotiemb/ProjetData354.git
@@ -143,6 +146,45 @@ http://yeniik.com.tr/wp-admin/js/login.alibaba.com/login.jsp.php
 lien vers l'application: http://fotiemb.pythonanywhere.com/
 
 ## IV)  Perspectives
+
+Nous avons opté pour un modèle qu'identifie correctement toutes les URL légitimes, sur 4 URLs de phishing, il prédit 2 correctement. Nous pourrions améliorer le modèle en suivant ces etapes:
+
+1-**Optimisation des hyperparamètres:**
+
+Effectuer une recherche plus approfondie des hyperparamètres du modèle pour trouver la combinaison optimale qui maximise la détection des URL phishing tout en maintenant une haute précision pour les URL légitimes.
+
+2-**Augmentation des données:**
+
+Enrichir le jeu de données d'entraînement en utilisant des techniques d'augmentation des données pour introduire davantage de diversité et améliorer la capacité du modèle à généraliser.
+
+3-**Mise en œuvre de techniques avancées d'apprentissage automatique:**
+
+  Explorer des modèles plus complexes tels que les réseaux neuronaux, les modèles de séquence, ou d'autres techniques d'apprentissage profond pour capturer des motifs plus complexes.
+
+**Fin**
+
+# Avis personnel
+La mise en place d'un modèle de détection de phishing offre un éventail de perspectives qui s'articulent tant autour de la sécurité que du volet commercial. Cette initiative revêt une importance capitale, offrant des avantages significatifs pour l'entreprise, ses clients et ses partenaires.
+
+Renforcement de la Sécurité :
+
+L'une des principales perspectives offertes par la mise en œuvre d'un modèle de détection de phishing réside dans l'amélioration de la sécurité informatique. En identifiant et en prévenant les attaques de phishing, l'entreprise renforce sa posture de protection des utilisateurs. Ce faisant, elle réduit le risque d'usurpation d'identité, de fraude en ligne et de compromission des données sensibles.
+
+Confiance des Clients dans les Transactions en Ligne :
+
+Le modèle de détection de phishing contribue également à accroître la confiance des clients dans les transactions en ligne. Cette confiance est particulièrement cruciale dans des secteurs sensibles tels que les services bancaires en ligne et les achats sur Internet. Les utilisateurs, rassurés par la présence d'une protection efficace, sont plus enclins à effectuer des transactions en toute sécurité, ce qui favorise la croissance des activités commerciales en ligne.
+
+Proposition de Solutions de Sécurité Intégrées :
+
+En intégrant la détection de phishing, l'entreprise peut proposer des solutions de sécurité intégrées à ses clients et partenaires. Ces solutions vont au-delà de la simple détection, englobant des mécanismes de prévention, d'éducation des utilisateurs et de réponse aux incidents. Offrir une gamme complète de services de sécurité renforce la position de l'entreprise en tant que partenaire fiable et engagé dans la protection des données et de la vie privée.
+
+Avantage Concurrentiel sur le Marché :
+
+La détection de phishing peut également être positionnée comme un avantage concurrentiel sur le marché. En mettant en avant sa capacité à sécuriser les interactions en ligne de manière proactive, l'entreprise se distingue de ses concurrents. Cette différentiation peut jouer un rôle déterminant dans le choix des consommateurs lorsqu'ils sélectionnent des services en ligne, renforçant ainsi la position de l'entreprise sur le marché.
+
+Conclusion :
+
+La mise en place d'un modèle de détection de phishing représente bien plus qu'une simple mesure de sécurité. C'est une initiative stratégique qui, au-delà de protéger les utilisateurs, contribue à renforcer la confiance, à proposer des solutions complètes et à positionner l'entreprise comme un acteur de confiance sur le marché. Cette approche holistique s'inscrit dans une vision à long terme visant à assurer la sécurité et la satisfaction des clients tout en offrant un avantage concurrentiel distinctif.
 
 
 
