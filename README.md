@@ -63,7 +63,7 @@ Le phishing constitue une attaque sophistiquée de cybercriminalité visant à i
 ## II)  Fichiers essentiels
 
 - Notebook [ici](https://github.com/Fotiemb/ProjetData354/blob/main/DetectionDePhising.ipynb)
-- plateforme développé pour tester le modèle: http://fotiemb.pythonanywhere.com/
+- plateforme développé pour tester le modèle: http://fotiemb.pythonanywhere.com/ vous trouverez le code source [ci-joint](https://github.com/Fotiemb/ProjetData354/tree/main/PhinsingPredictWeb)
 - API: [ici](https://github.com/Fotiemb/ProjetData354/tree/main/API_ForDeployment)
 
 ## III) Structuration du projet
@@ -71,26 +71,62 @@ Le phishing constitue une attaque sophistiquée de cybercriminalité visant à i
 ### Reponses aux Objectifs
 
 `Note:` Se référer au notebook [ici](https://github.com/Fotiemb/ProjetData354/blob/main/DetectionDePhising.ipynb) Pour mieux comprendre notre approche.
+
   **Analyse du jeu de données**
-  Nous avons 23523 entrées uniques. Il y a deux colonnes, celle de URL et de la colonne d'étiquette est une colonne de prédiction avec 2 catégories:
+  
+  Nous avons 23523 entrées uniques. Il y a deux colonnes, celle de URL et de la colonne d'étiquette qui est le label avec 2 catégories:
+  
   `legit`: Ce qui signifie que les URL ne contiennent pas d'éléments malveillants et que ce site n'est pas un phishing.
+  
   `fishing`: Ce qui signifie que les URL contiennent des éléments malveillants et que ce site est un site de phishing.
 
 Il n'y a aucune valeur manquante dans l'ensemble de données.
 
-  **Nettoyage des Données:**
-  Nous créé un fonction `preprocess_initial` qui permet de faire le Prétraitement sur l'ensemble de nos URLs.
+ 
+  **prétraitement:**
+  
+  Nous avons opté pour une approche dans le contexte du texte mining.
 
-  **Création de Features Appropriés:**
-  Nous avons passé nos données d'URL à un matrice TF-IDF pour la création de feature.
+Nous avons créé une fonction appelée preprocess_initial qui permet d'effectuer le prétraitement sur l'ensemble de nos URLs. Cette fonction réalise la tokenization et la racinisation initiales sur une URL. Elle utilise un tokenizer pour diviser l'URL en mots, un stemmer pour réduire les mots à leur racine, puis supprime les stopwords spécifiques aux URLs. Enfin, elle concatène les mots résultants pour former une version traitée de l'URL.
+
+  **Création de Features Appropriées:**
+
+Nous avons transformé nos données d'URL en une matrice TF-IDF pour la création de caractéristiques (features).
 
 **Comparaison de Modèles:**
-Nous avons fait la comparaison entre trois modèles en  utilisant différents technique de machine learning.
+
+Nous avons comparé trois modèles en utilisant différentes techniques de machine learning. Pour plus de détails, veuillez vous référer au notebook.
 
 **Prédiction du Label pour le Fichier de Soumission:**
+
 Nous avons fait les prédictions sur les données de soumissions pour voir si notre moèle arrive à bien généraliser sur de nouvelles données.
 
+**Mise en place d'une API**
+
+Nous avons mis en place une API grâce à FastAPI suivez les étapes suivantes pour la déployer en local
+
+```
+https://github.com/Fotiemb/ProjetData354.git
+```
+```
+cd API_ForDeployment
+```
+
+```
+uvicorn main:app --reload
+```
+Après ces étapes tapez dans votre navigateur l'url suivante:
+
+```
+http://127.0.0.1:8000/docs
+```
+Et voilà !
+
+![image](https://github.com/Fotiemb/ProjetData354/assets/99336213/0ee8bc65-ff87-447b-bcef-7b21a240debe)
+
+
 **Déploiement d'une APP**
+
 Nous avons intégré le modèle à une application (basique) en production entre griffe.
 Nous vous fournissons des données test que vous pourriez utiliser pour voir le comportement de l'application.
 
