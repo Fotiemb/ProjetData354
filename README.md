@@ -1,6 +1,6 @@
 ## ProjetData354
 
-### **Contexte du Projet : Construction d'un Modèle de Machine Learning pour la Détection de Phishing**
+### **Contexte du Projet : Mise en place d'un Modèle de Machine Learning pour la Détection de Phishing**
 
 
 **Objectifs du Projet:**
@@ -24,7 +24,7 @@ Pour une utilisation pratique, le projet pourrait inclure le développement d'un
 ### IV)  Perspectives
 
 
-### D'abord posons les jalons et donnons quelques définition afin que ce projet soit compris dans son ensemble.
+### Avant de mettre le pied à l'étrier posons les jalons et donnons quelques définition afin que ce projet soit compris dans son ensemble.
 
 ## I) Qu'est ce le Phising
 
@@ -67,9 +67,9 @@ Le phishing, forme avancée de cybercriminalité, vise à obtenir des informatio
 
 ## II)  Fichiers essentiels
 
-- Notebook [ici](https://github.com/Fotiemb/ProjetData354/blob/main/DetectionDePhising.ipynb)
+- Vous trouverez mon notebook [ici](https://github.com/Fotiemb/ProjetData354/blob/main/DetectionDePhising.ipynb)
 - plateforme développé pour tester le modèle: http://fotiemb.pythonanywhere.com/ vous trouverez le code source [ci-joint](https://github.com/Fotiemb/ProjetData354/tree/main/PhinsingPredictWeb)
-- API: [ici](https://github.com/Fotiemb/ProjetData354/tree/main/API_ForDeployment)
+- Code source pour l'API: [ici](https://github.com/Fotiemb/ProjetData354/tree/main/API_ForDeployment)
 
 ## III) Structuration du projet
 
@@ -79,7 +79,7 @@ Le phishing, forme avancée de cybercriminalité, vise à obtenir des informatio
 
   **Analyse du jeu de données**
   
-  Nous avons 23523 entrées uniques. Il y a deux colonnes, celle de URL et de la colonne d'étiquette qui est le label avec 2 catégories:
+  Nous avons 23523 entrées uniques. Il y a deux colonnes, celle de l'URL et celle des étiquettes ou label avec 2 catégories:
   
   `legit`: Ce qui signifie que les URL ne contiennent pas d'éléments malveillants et que ce site n'est pas un phishing.
   
@@ -96,7 +96,7 @@ Nous avons créé une fonction appelée `preprocess_initial` qui permet d'effect
 
   **Création de Features Appropriées:**
 
-Nous avons transformé nos données d'URL en une matrice TF-IDF pour la création de caractéristiques (features).
+Nous avons transformé les données d'URL en une matrice TF-IDF pour la création de caractéristiques (features).
 
 **Comparaison de Modèles:**
 
@@ -105,11 +105,11 @@ Nous avons comparé trois modèles en utilisant différentes techniques de machi
 - La precision
 - Le rappel
 
-Nous avons choisit le modèle du scénario 3 (MultinomialNB) car il atteint un équilibre entre la détection des URL légitimes et la détection des attaques de phishing. Ce modèle a été donc choisi pour predire les labels du fichier de soumission.
+Nous avons choisit le modèle du scénario 3 (**MultinomialNB**) car il atteint un équilibre entre la détection des URL légitimes et la détection des attaques de phishing. Ce modèle a été donc choisi pour predire les labels du fichier de soumission. Il prédit très bien les URLs légitimes et les URLs non légitime sur 4 il prédit 3 comme etant phising.
 
 **Prédiction du Label pour le Fichier de Soumission:**
 
-Nous avons fait les prédictions sur les données de soumissions pour voir si notre moèle arrive à bien généraliser sur de nouvelles données.
+Nous avons fait les prédictions sur les données de soumissions pour voir si notre modèle arrive à bien généraliser sur de nouvelles données.
 
 **Mise en place d'une API**
 
