@@ -60,10 +60,15 @@ Le phishing constitue une attaque sophistiquée de cybercriminalité visant à i
 - Utilisation de filtres anti-phishing : outils pour détecter et bloquer les e-mails de phishing.
 - Mises à jour régulières des logiciels de sécurité.
 
+  `RETENIR:`
+
+Le phishing, forme avancée de cybercriminalité, vise à obtenir des informations sensibles. Il utilise diverses méthodes, telles que des e-mails frauduleux et des sites Web de phishing. Les techniques d'ingénierie sociale, comme la création de faux sites, augmentent la crédibilité des attaques. Pour détecter les URL de phishing, la vigilance envers l'expéditeur, l'analyse de l'URL et la méfiance envers les demandes d'informations sont cruciales. La prévention implique une sensibilisation des utilisateurs, l'utilisation de filtres anti-phishing et des mises à jour régulières des logiciels de sécurité.
+
+
 ## II)  Fichiers essentiels
 
 - Notebook [ici](https://github.com/Fotiemb/ProjetData354/blob/main/DetectionDePhising.ipynb)
-- plateforme développé pour tester le modèle: http://fotiemb.pythonanywhere.com/
+- plateforme développé pour tester le modèle: http://fotiemb.pythonanywhere.com/ vous trouverez le code source [ci-joint](https://github.com/Fotiemb/ProjetData354/tree/main/PhinsingPredictWeb)
 - API: [ici](https://github.com/Fotiemb/ProjetData354/tree/main/API_ForDeployment)
 
 ## III) Structuration du projet
@@ -71,28 +76,69 @@ Le phishing constitue une attaque sophistiquée de cybercriminalité visant à i
 ### Reponses aux Objectifs
 
 `Note:` Se référer au notebook [ici](https://github.com/Fotiemb/ProjetData354/blob/main/DetectionDePhising.ipynb) Pour mieux comprendre notre approche.
+
   **Analyse du jeu de données**
-  Nous avons 23523 entrées uniques. Il y a deux colonnes, celle de URL et de la colonne d'étiquette est une colonne de prédiction avec 2 catégories:
+  
+  Nous avons 23523 entrées uniques. Il y a deux colonnes, celle de URL et de la colonne d'étiquette qui est le label avec 2 catégories:
+  
   `legit`: Ce qui signifie que les URL ne contiennent pas d'éléments malveillants et que ce site n'est pas un phishing.
+  
   `fishing`: Ce qui signifie que les URL contiennent des éléments malveillants et que ce site est un site de phishing.
 
 Il n'y a aucune valeur manquante dans l'ensemble de données.
 
-  **Nettoyage des Données:**
-  Nous créé un fonction `preprocess_initial` qui permet de faire le Prétraitement sur l'ensemble de nos URLs.
+ 
+  **prétraitement:**
+  
+Nous avons opté pour une approche dans le contexte du texte mining.
 
-  **Création de Features Appropriés:**
-  Nous avons passé nos données d'URL à un matrice TF-IDF pour la création de feature.
+Nous avons créé une fonction appelée `preprocess_initial` qui permet d'effectuer le prétraitement sur l'ensemble de nos URLs. Cette fonction réalise la tokenization et la racinisation initiales sur une URL. Elle utilise un tokenizer pour diviser l'URL en mots, un stemmer pour réduire les mots à leur racine, puis supprime les stopwords spécifiques aux URLs. Enfin, elle concatène les mots résultants pour former une version traitée de l'URL.
+
+  **Création de Features Appropriées:**
+
+Nous avons transformé nos données d'URL en une matrice TF-IDF pour la création de caractéristiques (features).
 
 **Comparaison de Modèles:**
-Nous avons fait la comparaison entre trois modèles en  utilisant différents technique de machine learning.
+
+Nous avons comparé trois modèles en utilisant différentes techniques de machine learning. Pour plus de détails, veuillez vous référer au notebook. Nous avons mis en avant ces métriques:
+- F1-score
+- La precision
+- Le rappel
+
+Nous avons choisit le modèle du scénario 3 (MultinomialNB) car il atteint un équilibre entre la détection des URL légitimes et la détection des attaques de phishing. Ce modèle a été donc choisi pour predire les labels du fichier de soumission.
 
 **Prédiction du Label pour le Fichier de Soumission:**
+
 Nous avons fait les prédictions sur les données de soumissions pour voir si notre moèle arrive à bien généraliser sur de nouvelles données.
 
+**Mise en place d'une API**
+
+Nous avons mis en place une API grâce à FastAPI. Suivez les étapes suivantes pour la déployer en local.
+
+```
+git clone https://github.com/Fotiemb/ProjetData354.git
+```
+```
+cd API_ForDeployment
+```
+
+```
+uvicorn main:app --reload
+```
+Après ces étapes tapez dans votre navigateur l'url suivante:
+
+```
+http://127.0.0.1:8000/docs
+```
+Et voilà !
+
+![image](https://github.com/Fotiemb/ProjetData354/assets/99336213/0ee8bc65-ff87-447b-bcef-7b21a240debe)
+
+
 **Déploiement d'une APP**
+
 Nous avons intégré le modèle à une application (basique) en production entre griffe.
-Nous vous fournissons des données test que vous pourriez utiliser pour voir le comportement de l'application.
+Nous vous fournissons des données tests que vous pourriez utiliser pour voir le comportement de l'application.
 
 données:
 `URL normale(pas phising):` 
@@ -107,6 +153,45 @@ http://yeniik.com.tr/wp-admin/js/login.alibaba.com/login.jsp.php
 lien vers l'application: http://fotiemb.pythonanywhere.com/
 
 ## IV)  Perspectives
+
+Nous pourrions améliorer le modèle en suivant ces etapes:
+
+1-**Optimisation des hyperparamètres:**
+
+Effectuer une recherche plus approfondie des hyperparamètres du modèle pour trouver la combinaison optimale qui maximise la détection des URL phishing tout en maintenant une haute précision pour les URL légitimes.
+
+2-**Augmentation des données:**
+
+Enrichir le jeu de données d'entraînement en utilisant des techniques d'augmentation des données pour introduire davantage de diversité et améliorer la capacité du modèle à généraliser.
+
+3-**Mise en œuvre de techniques avancées d'apprentissage automatique:**
+
+  Explorer des modèles plus complexes tels que les réseaux de neuronaux ou d'autres techniques d'apprentissage profond pour capturer des motifs plus complexes.
+
+**Fin**
+
+# Avis personnel
+La mise en place d'un modèle de détection de phishing offre un éventail de perspectives qui s'articulent tant autour de la sécurité que du volet commercial. Cette initiative revêt une importance capitale, offrant des avantages significatifs pour l'entreprise, ses clients et ses partenaires.
+
+Renforcement de la Sécurité :
+
+L'une des principales perspectives offertes par la mise en œuvre d'un modèle de détection de phishing réside dans l'amélioration de la sécurité informatique. En identifiant et en prévenant les attaques de phishing, l'entreprise renforce sa posture de protection des utilisateurs. Ce faisant, elle réduit le risque d'usurpation d'identité, de fraude en ligne et de compromission des données sensibles.
+
+Confiance des Clients dans les Transactions en Ligne :
+
+Le modèle de détection de phishing contribue également à accroître la confiance des clients dans les transactions en ligne. Cette confiance est particulièrement cruciale dans des secteurs sensibles tels que les services bancaires en ligne et les achats sur Internet. Les utilisateurs, rassurés par la présence d'une protection efficace, sont plus enclins à effectuer des transactions en toute sécurité, ce qui favorise la croissance des activités commerciales en ligne.
+
+Proposition de Solutions de Sécurité Intégrées :
+
+En intégrant la détection de phishing, l'entreprise peut proposer des solutions de sécurité intégrées à ses clients et partenaires. Ces solutions vont au-delà de la simple détection, englobant des mécanismes de prévention, d'éducation des utilisateurs et de réponse aux incidents. Offrir une gamme complète de services de sécurité renforce la position de l'entreprise en tant que partenaire fiable et engagé dans la protection des données et de la vie privée.
+
+Avantage Concurrentiel sur le Marché :
+
+La détection de phishing peut également être positionnée comme un avantage concurrentiel sur le marché. En mettant en avant sa capacité à sécuriser les interactions en ligne de manière proactive, l'entreprise se distingue de ses concurrents. Cette différentiation peut jouer un rôle déterminant dans le choix des consommateurs lorsqu'ils sélectionnent des services en ligne, renforçant ainsi la position de l'entreprise sur le marché.
+
+Conclusion :
+
+La mise en place d'un modèle de détection de phishing représente bien plus qu'une simple mesure de sécurité. C'est une initiative stratégique qui, au-delà de protéger les utilisateurs, contribue à renforcer la confiance, à proposer des solutions complètes et à positionner l'entreprise comme un acteur de confiance sur le marché. Cette approche holistique s'inscrit dans une vision à long terme visant à assurer la sécurité et la satisfaction des clients tout en offrant un avantage concurrentiel distinctif.
 
 
 
