@@ -60,6 +60,11 @@ Le phishing constitue une attaque sophistiquée de cybercriminalité visant à i
 - Utilisation de filtres anti-phishing : outils pour détecter et bloquer les e-mails de phishing.
 - Mises à jour régulières des logiciels de sécurité.
 
+  `RETENIR:`
+
+Le phishing, forme avancée de cybercriminalité, vise à obtenir des informations sensibles. Il utilise diverses méthodes, telles que des e-mails frauduleux et des sites Web de phishing. Les techniques d'ingénierie sociale, comme la création de faux sites, augmentent la crédibilité des attaques. Pour détecter les URL de phishing, la vigilance envers l'expéditeur, l'analyse de l'URL et la méfiance envers les demandes d'informations sont cruciales. La prévention implique une sensibilisation des utilisateurs, l'utilisation de filtres anti-phishing et des mises à jour régulières des logiciels de sécurité.
+
+
 ## II)  Fichiers essentiels
 
 - Notebook [ici](https://github.com/Fotiemb/ProjetData354/blob/main/DetectionDePhising.ipynb)
