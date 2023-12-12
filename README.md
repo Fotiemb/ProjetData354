@@ -104,12 +104,12 @@ Nous avons comparé trois modèles en utilisant différentes techniques de machi
 - F1-score
 - La precision
 - Le rappel
-
-Nous avons choisit le modèle du scénario 3 (**MultinomialNB**) car il atteint un équilibre entre la détection des URL légitimes et la détection des attaques de phishing. Ce modèle a été donc choisi pour predire les labels du fichier de soumission. Il prédit très bien les URLs légitimes et les URLs non légitime sur 4 il prédit 3 comme etant phising.
+**Test sur de nouvelles données et choix du modèle**
+Nous avons choisi le modèle du scénario 3 (**MultinomialNB**) car il atteint un équilibre entre la détection des URL légitimes et la détection des attaques de phishing. Ce choix est basé sur sa capacité à prédire avec précision les labels. Ce modèle excelle dans la classification des URLs légitimes tout en démontrant une performance notable dans la détection des URLs malveillantes, prédisant correctement 3 sur 4 des cas de phishing. Voir le noteBook pour plus de détails.
 
 **Prédiction du Label pour le Fichier de Soumission:**
 
-Nous avons fait les prédictions sur les données de soumissions pour voir si notre modèle arrive à bien généraliser sur de nouvelles données.
+Nous avons fait les prédictions sur les données de soumissions notamment avec notre modèle choisi.
 
 **Mise en place d'une API**
 
