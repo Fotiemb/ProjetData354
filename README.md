@@ -90,7 +90,7 @@ Il n'y a aucune valeur manquante dans l'ensemble de données.
  
   **prétraitement:**
   
-Nous avons opté pour une approche dans le contexte du texte mining.
+Nous avons opté pour une approche dans le contexte du text mining.
 
 Nous avons créé une fonction appelée `preprocess_initial` qui permet d'effectuer le prétraitement sur l'ensemble de nos URLs. Cette fonction réalise la tokenization et la racinisation initiales sur une URL. Elle utilise un tokenizer pour diviser l'URL en mots, un stemmer pour réduire les mots à leur racine, puis supprime les stopwords spécifiques aux URLs. Enfin, elle concatène les mots résultants pour former une version traitée de l'URL.
 
@@ -104,7 +104,9 @@ Nous avons comparé trois modèles en utilisant différentes techniques de machi
 - F1-score
 - La precision
 - Le rappel
-**Test sur de nouvelles données et choix du modèle**
+  
+**Test sur de nouvelles données et choix du modèle:**
+
 Nous avons choisi le modèle du scénario 3 (**MultinomialNB**) car il atteint un équilibre entre la détection des URL légitimes et la détection des attaques de phishing. Ce choix est basé sur sa capacité à prédire avec précision les labels. Ce modèle excelle dans la classification des URLs légitimes tout en démontrant une performance notable dans la détection des URLs malveillantes, prédisant correctement 3 sur 4 des cas de phishing. Voir le noteBook pour plus de détails.
 
 **Prédiction du Label pour le Fichier de Soumission:**
