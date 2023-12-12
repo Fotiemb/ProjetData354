@@ -100,10 +100,12 @@ Nous avons transformé nos données d'URL en une matrice TF-IDF pour la créatio
 
 **Comparaison de Modèles:**
 
-Nous avons comparé trois modèles en utilisant différentes techniques de machine learning. Pour plus de détails, veuillez vous référer au notebook. Nous mis en avant ces métriques:
+Nous avons comparé trois modèles en utilisant différentes techniques de machine learning. Pour plus de détails, veuillez vous référer au notebook. Nous avons mis en avant ces métriques:
 - F1-score
 - La precision
 - Le rappel
+
+Nous avons choisit le modèle du scénario 3 (MultinomialNB) car il atteint un équilibre entre la détection des URL légitimes et la détection des attaques de phishing. Ce modèle a été donc choisi pour predire les labels du fichier de soumission.
 
 **Prédiction du Label pour le Fichier de Soumission:**
 
@@ -114,7 +116,7 @@ Nous avons fait les prédictions sur les données de soumissions pour voir si no
 Nous avons mis en place une API grâce à FastAPI. Suivez les étapes suivantes pour la déployer en local.
 
 ```
-https://github.com/Fotiemb/ProjetData354.git
+git clone https://github.com/Fotiemb/ProjetData354.git
 ```
 ```
 cd API_ForDeployment
@@ -136,7 +138,7 @@ Et voilà !
 **Déploiement d'une APP**
 
 Nous avons intégré le modèle à une application (basique) en production entre griffe.
-Nous vous fournissons des données test que vous pourriez utiliser pour voir le comportement de l'application.
+Nous vous fournissons des données tests que vous pourriez utiliser pour voir le comportement de l'application.
 
 données:
 `URL normale(pas phising):` 
@@ -152,7 +154,7 @@ lien vers l'application: http://fotiemb.pythonanywhere.com/
 
 ## IV)  Perspectives
 
-Nous avons opté pour un modèle qu'identifie correctement toutes les URL légitimes, sur 4 URLs de phishing, il prédit 2 correctement. Nous pourrions améliorer le modèle en suivant ces etapes:
+Nous pourrions améliorer le modèle en suivant ces etapes:
 
 1-**Optimisation des hyperparamètres:**
 
@@ -164,7 +166,7 @@ Enrichir le jeu de données d'entraînement en utilisant des techniques d'augmen
 
 3-**Mise en œuvre de techniques avancées d'apprentissage automatique:**
 
-  Explorer des modèles plus complexes tels que les réseaux neuronaux, les modèles de séquence, ou d'autres techniques d'apprentissage profond pour capturer des motifs plus complexes.
+  Explorer des modèles plus complexes tels que les réseaux de neuronaux ou d'autres techniques d'apprentissage profond pour capturer des motifs plus complexes.
 
 **Fin**
 
